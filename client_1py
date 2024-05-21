@@ -1,0 +1,27 @@
+#part1
+import socket
+serverName = 'localhost'
+serverPort = 12000
+clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+clientSocket.connect((serverName,serverPort))
+
+
+
+utf_sentence1=input("İsim ve Soy isminiz:\n")
+byte_sentence1=bytes(utf_sentence1,"utf-8")
+clientSocket.send(byte_sentence1)
+####
+utf_sentence2=input("Kredi kartı numaranız:\n")
+byte_sentence2=bytes(utf_sentence2,"utf-8")
+clientSocket.send(byte_sentence2)
+####
+utf_sentence3=input("Geçerlilik süresi:\n")
+byte_sentence3=bytes(utf_sentence3,"utf-8")
+clientSocket.send(byte_sentence3)
+####
+utf_sentence4=input("Güvenlik kodu:\n")
+byte_sentence4=bytes(utf_sentence4,"utf-8")
+clientSocket.send(byte_sentence4)
+####
+
+clientSocket.close()
